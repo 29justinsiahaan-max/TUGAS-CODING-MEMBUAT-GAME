@@ -1,0 +1,195 @@
+/* Palet Warna Sederhana */
+:root {
+    --primary-dark: #2C3E50; /* Biru Tua tidak mencolok */
+    --primary-light: #B3E5FC; /* Biru Muda */
+    --secondary-light: #FFF9C4; /* Kuning Muda */
+    --accent-light: #FFCDD2; /* Merah Muda */
+    --text-dark: #37474F; /* Teks Gelap */
+    --text-light: #FFFFFF; /* Teks Terang */
+    --cell-hover: #E0F7FA; /* Hover Lebih Terang */
+}
+
+/* Pengaturan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--primary-dark); /* Menggunakan biru tua baru */
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative; 
+    overflow: hidden; 
+}
+
+/* Motif Latar Belakang Game (TETAP SAMA) */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(0deg, transparent 95%, rgba(255, 255, 255, 0.05) 95%),
+        linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.05) 95%);
+    background-size: 50px 50px; 
+    opacity: 0.8; 
+    z-index: -1; 
+    animation: backgroundMove 60s linear infinite; 
+}
+
+@keyframes backgroundMove {
+    from { background-position: 0 0; }
+    to { background-position: 500px 500px; }
+}
+
+/* Kontainer Game */
+.game-container {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); 
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1s ease-out; 
+    z-index: 1; 
+    /* Mengatur tinggi minimum untuk transisi layar */
+    min-height: 400px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* **Gaya Screen Baru** */
+.screen {
+    width: 100%;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.screen.hide {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    visibility: hidden;
+}
+
+.screen.active {
+    opacity: 1;
+    position: static;
+    visibility: visible;
+}
+
+/* Judul dan Subtitle */
+.game-title {
+    font-size: 2.5em; /* Dibuat sedikit lebih besar di splash screen */
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+.subtitle {
+    font-size: 1.1em;
+    color: #757575;
+    margin-bottom: 30px;
+}
+.section-title {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+/* Gaya Tombol Aksi Umum (Tombol Mulai dan Mode) */
+.action-button {
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    width: 100%; 
+    margin: 10px 0;
+}
+
+/* Warna Tombol Primary (Start, Play Again) */
+.primary-button {
+    background-color: #4CAF50; /* Hijau */
+    color: var(--text-light);
+}
+
+.primary-button:hover {
+    background-color: #43A047;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Warna Tombol Secondary (Reset) */
+.secondary-button {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+}
+
+.secondary-button:hover {
+    background-color: #455A64;
+    transform: translateY(-2px);
+}
+
+/* Gaya Khusus Tombol Mode */
+.mode-button {
+    background-color: var(--primary-light); /* Biru Muda */
+    color: var(--text-dark);
+    padding: 15px 25px;
+    font-size: 1.1em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mode-button:hover {
+    background-color: var(--cell-hover);
+    border: 1px solid var(--text-dark);
+    transform: scale(1.02);
+}
+
+
+/* Gaya Lainnya (TETAP SAMA) */
+
+.game-status {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--secondary-light); 
+    color: var(--text-dark);
+    transition: transform 0.3s ease-in-out;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.cell {
+    background-color: var(--accent-light); 
+    border-radius: 8px;
+    height: 100px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    user-select: none; 
+}
+/* ... sisa gaya .cell, .X, .O, .winning, dan popup (TETAP SAMA) ... */

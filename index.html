@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        
+        <div id="splash-screen" class="screen active">
+            <h1 class="game-title">
+                <i class="fas fa-th-large"></i> Tic-Tac-Toe
+            </h1>
+            <p class="subtitle">A classic game for all ages.</p>
+            <button id="start-button" class="action-button primary-button">
+                <i class="fas fa-play"></i> Start Game
+            </button>
+        </div>
+
+        <div id="mode-selector" class="screen hide">
+            <h2 class="section-title"><i class="fas fa-gamepad"></i> Choose Mode</h2>
+            <button id="mode-pvp" class="action-button mode-button">
+                <i class="fas fa-users"></i> Player vs Player
+            </button>
+            <button id="mode-pvc" class="action-button mode-button">
+                <i class="fas fa-robot"></i> Player vs AI
+            </button>
+        </div>
+
+        <div id="game-board-screen" class="screen hide">
+            <div id="status-area" class="game-status">
+                </div>
+
+            <div class="board-grid">
+                <div class="cell" data-cell-index="0"></div>
+                <div class="cell" data-cell-index="1"></div>
+                <div class="cell" data-cell-index="2"></div>
+                <div class="cell" data-cell-index="3"></div>
+                <div class="cell" data-cell-index="4"></div>
+                <div class="cell" data-cell-index="5"></div>
+                <div class="cell" data-cell-index="6"></div>
+                <div class="cell" data-cell-index="7"></div>
+                <div class="cell" data-cell-index="8"></div>
+            </div>
+
+            <button id="reset-button" class="action-button secondary-button">
+                <i class="fas fa-redo-alt"></i> Reset Game
+            </button>
+        </div>
+        
+    </div>
+
+    <div id="popup-result" class="popup-result hide">
+        <div class="popup-content">
+            <p id="result-message"></p>
+            <button id="new-game-button" class="action-button primary-button">
+                <i class="fas fa-play"></i> Play Again
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
